@@ -1,8 +1,10 @@
 package com.company;
 
 import com.company.domain.*;
+import com.company.service.Diccionario;
 import com.company.service.GestorUrgencias;
 import com.company.util.PrioridadSolicitudComparator;
+import exceptions.PalabraInexistenteException;
 
 import java.time.LocalDateTime;
 import java.util.PriorityQueue;
@@ -11,22 +13,38 @@ import java.util.Queue;
 public class App {
 
     public static void main(String[] args) {
-	/*Diccionario diccionarioEspañol = new Diccionario("Españosl");
-    diccionarioEspañol.ingresarPalabra(new Palabra("Programacion" , "Accion y efecto de programar ", " Español"));
+	Diccionario diccionario = new Diccionario("Españosl");
+    try {
+        diccionario.buscarPalabra("ExcepCion");
+    } catch (PalabraInexistenteException e) {
+        System.out.println(e.getMessage());
+    }
+
+          /*excepcion uncheked :
+   try {
+       diccionarioEspañol.buscarPalabra("Excepcion");
+   }catch (PalabraInexistenteException e) {
+       System.out.println("La palabra que esta buscando no existe");
+   }*/
+
+
+    /*diccionarioEspañol.ingresarPalabra(new Palabra("Programacion" , "Accion y efecto de programar ", " Español"));
     diccionarioEspañol.ingresarPalabra(new Palabra("Saludo ", "Accion y efecto de saludar ", " Español"));
     diccionarioEspañol.ingresarPalabra(new Palabra("Abeja", " Insecto himenoptero ", "Español"));
-    diccionarioEspañol.ingresarPalabra(new Palabra("Programacion" , "Accion y efecto de programar ", " Español"));
-    diccionarioEspañol.buscarPalabra("Programacion");
-    System.out.println("palabras en diccionario: ");
+    diccionarioEspañol.ingresarPalabra(new Palabra("Programacion" , "Accion y efecto de programar ", " Español"));*/
+
+
+
+  /*  System.out.println("palabras en diccionario: ");
     diccionarioEspañol.imprimirPalabras();
     diccionarioEspañol.removerPalabra("Programacion");
     System.out.println("diccionario despues de remover");
     diccionarioEspañol.imprimirPalabras();
 
 
-    //Diccionario diccionarioIngles = new Diccionario("Ingles");
-    //diccionarioIngles.ingresarPalabra(new PalabraNoEspañol("Programming", "Programming", "action of programming"));*/
-
+    Diccionario diccionarioIngles = new Diccionario("Ingles");
+    diccionarioIngles.ingresarPalabra(new PalabraNoEspañol("Programming", "Programming", "action of programming"));
+*/
 
       /*  Biblioteca bibliotecaDeDuitama = new Biblioteca();
         bibliotecaDeDuitama.registrarLibro(new Libro("Harry Poter", "J.k.ROWLS ", 2000));
@@ -49,7 +67,7 @@ public class App {
             System.out.println(solicitudes.remove());
         }*/
 
-        Persona medico = new Medico(TipoIdentificacion.DNI,"0123456",
+       /* Persona medico = new Medico(TipoIdentificacion.DNI,"0123456",
                 "Pepito", "Perez",LocalDateTime.of(1991,12,12,12,12,1),123456);
         Persona juan = new Paciente(TipoIdentificacion.PASAPORTE, "1234", " Juan",
                "Albarracin ",LocalDateTime.of(1991, 12,12,12,12,1), " Desarrollador", " Allianz") ;
@@ -64,7 +82,7 @@ public class App {
 
 
 
-
+*/
 
     }
 }

@@ -1,6 +1,7 @@
 package com.company.service;
 
 import com.company.domain.Palabra;
+import exceptions.PalabraInexistenteException;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,7 +27,7 @@ public class Diccionario {
         palabras.add(palabraAingresar);
 
     }
-    public void buscarPalabra(String palabra){
+    public void buscarPalabra(String palabra)throws PalabraInexistenteException{
         boolean seEncontro = false;
         for (Palabra palabraEnDiccionario : palabras) {
             if (palabraEnDiccionario.getPalabra().equals(palabra)) {
@@ -36,7 +37,7 @@ public class Diccionario {
             }
         }
         if (!seEncontro) {
-            System.out.println("La palabra " + palabra + " no existe en el diccionario.");
+           throw new PalabraInexistenteException("La palabra " + " no existe en el diccionario. ");
         }
     }
 
